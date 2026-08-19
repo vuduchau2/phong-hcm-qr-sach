@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tủ sách Phòng HCM</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="topbar">
+        <div>
+          <h1>Tủ sách Phòng HCM</h1>
+        </div>
+      </header>
+
+      <section class="controls">
+        <label class="search-wrap">
+          <span>Tìm kiếm</span>
+          <input id="searchInput" type="search" placeholder="Tìm theo mã sách, tên sách, tác giả..." />
+        </label>
+      </section>
+
+      <div id="summary" class="summary">Đang tải...</div>
+
+      <nav class="pagination" aria-label="Phân trang danh sách sách phía trên">
+        <label class="page-size-wrap">
+          <span>Số dòng</span>
+          <select class="page-size-select">
+            <option value="25">25</option>
+            <option value="50" selected>50</option>
+            <option value="100">100</option>
+          </select>
+        </label>
+        <span class="page-info"></span>
+        <div class="page-actions">
+          <button class="previous-page-button" type="button">Trang trước</button>
+          <button class="next-page-button" type="button">Trang sau</button>
+        </div>
+      </nav>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Mã số sách</th>
+              <th>Tên sách</th>
+              <th>Tác giả</th>
+              <th>NXB</th>
+              <th>Giá tiền</th>
+            </tr>
+          </thead>
+          <tbody id="bookTableBody"></tbody>
+        </table>
+      </div>
+
+      <nav class="pagination" aria-label="Phân trang danh sách sách">
+        <label class="page-size-wrap">
+          <span>Số dòng</span>
+          <select class="page-size-select">
+            <option value="25">25</option>
+            <option value="50" selected>50</option>
+            <option value="100">100</option>
+          </select>
+        </label>
+        <span class="page-info"></span>
+        <div class="page-actions">
+          <button class="previous-page-button" type="button">Trang trước</button>
+          <button class="next-page-button" type="button">Trang sau</button>
+        </div>
+      </nav>
+
+      <div id="message" class="message" hidden></div>
+    </div>
+
+    <dialog id="bookDialog" class="book-dialog">
+      <div class="dialog-header">
+        <h2 id="dialogTitle">Thông tin sách</h2>
+        <button id="closeDialogButton" class="close-button" type="button" aria-label="Đóng">&times;</button>
+      </div>
+      <dl id="bookDetails" class="book-details"></dl>
+    </dialog>
+
+    <script src="app.js"></script>
+  </body>
+</html>
